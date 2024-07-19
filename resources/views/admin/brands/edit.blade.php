@@ -74,11 +74,13 @@
                 data: element.serialize(),
                 datatype: 'json',
                 success: function(response) {
+                    console.log(response);
                     if (response.status) {
                         // Store the flash message in sessionStorage
                         sessionStorage.setItem('flashMessage', response.message);
                         window.location.href = response.redirect;
                     } else {
+                        console.log(response);
                         var errors = response.errors;
                         if (errors.name) {
                             $('#name').addClass('is-invalid').siblings('p').addClass(

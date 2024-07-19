@@ -7,9 +7,11 @@ use Illuminate\Http\Request;
 use App\Models\Category;
 use App\Models\SubCategory;
 use Illuminate\Support\Facades\Validator;
+use App\Traits\JsonResponseTrait;
 
 class SubCategoryController extends Controller
 {
+    use JsonResponseTrait;
 
     public function index()
     {
