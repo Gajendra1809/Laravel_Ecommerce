@@ -3,7 +3,6 @@
 namespace App\Services;
 
 use App\Repositories\ProductImageRepository;
-use App\Models\ProductImage;
 use Intervention\Image\Laravel\Facades\Image;
 use Illuminate\Support\Facades\File;
 

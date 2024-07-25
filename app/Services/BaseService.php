@@ -4,7 +4,6 @@ namespace App\Services;
 
 use Illuminate\Support\Facades\File;
 use Intervention\Image\Laravel\Facades\Image;
-use Illuminate\Support\Facades\Log;
 
 class BaseService {
 
