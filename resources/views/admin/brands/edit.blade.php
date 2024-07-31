@@ -66,6 +66,7 @@
 @section('customjs')
     <script>
         $("#brandForm").submit(function(event) {
+            console.log("edit form submitted");
             event.preventDefault();
             var element = $("#brandForm");
             $.ajax({

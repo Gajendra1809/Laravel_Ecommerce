@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers\admin;
 
+use App\DataTables\ProductDataTable;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Validator;
@@ -36,10 +37,10 @@ class ProductController extends Controller
 
     }
 
-    public function index()
-    {
-        $products = $this->productService->getAll();
-        return view("admin.products.list", compact("products"));
+    public function index(ProductDataTable $dataTable){
+
+        return $dataTable->render("admin.products.list");
+
     }
 
     public function create()

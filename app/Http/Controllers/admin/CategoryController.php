@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers\admin;
 
+use App\DataTables\CategoryDataTable;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Validator;
@@ -17,10 +18,11 @@ class CategoryController extends Controller
     public function __construct(CategoryService $categoryService){
         $this->categoryService = $categoryService;
     }
-    public function index()
-    {
-        $categories = $this->categoryService->getAll();
-        return view("admin.category.list", compact('categories'));
+
+    public function index(CategoryDataTable $dataTables){
+        
+        return $dataTables->render('admin.category.list');
+
     }
 
     public function create()

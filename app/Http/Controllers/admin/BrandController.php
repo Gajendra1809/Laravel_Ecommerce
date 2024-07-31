@@ -7,6 +7,7 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Validator;
 use App\Services\BrandService;
 use App\Traits\JsonResponseTrait;
+use App\DataTables\BrandDataTable;
 
 class BrandController extends Controller
 {
@@ -18,12 +19,12 @@ class BrandController extends Controller
         $this->brandService = $brandService;
     }
 
-    public function index(){
+    public function index(BrandDataTable $dataTables){
 
-        $brands = $this->brandService->getAll();
-        return view("admin.brands.list",compact("brands"));
+        return $dataTables->render('admin.brands.list');
 
     }
+
     public function create(){
 
         return view("admin.brands.create");

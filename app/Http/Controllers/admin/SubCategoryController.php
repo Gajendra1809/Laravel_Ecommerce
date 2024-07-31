@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers\admin;
 
+use App\DataTables\SubcategoryDataTable;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Validator;
@@ -28,11 +29,12 @@ class SubCategoryController extends Controller
 
     }
 
-    public function index()
-    {
-        $subcategories = $this->subCategoryService->getAll();
-        return view("admin.subcategory.list", compact("subcategories"));
+    public function index(SubcategoryDataTable $dataTable){
+
+        return $dataTable->render("admin.subcategory.list");
+
     }
+
     public function create()
     {
         $categories = $this->categoryService->getByOrder();
